@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:lecture_6_material_theming/homescreen.dart';
+import 'package:lecture_6_material_theming/styles.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,9 +27,23 @@ class MyApp extends StatelessWidget {
         colorScheme: Theme.of(context).colorScheme
             .copyWith(
               brightness: Brightness.dark,
-              primary: Colors.red,
-              secondary: Colors.teal,
+              primary: Colors.teal,
+              secondary: Colors.tealAccent,
             ),
+        appBarTheme: const AppBarTheme(
+          color: Colors.black38,
+          titleTextStyle: TextStyle(
+            fontSize: 18,
+            fontFamily: "KdamThmorPro",
+            color: Colors.white
+          ),
+          iconTheme: IconThemeData(
+            color: Colors.white
+          )
+        ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.black38
+        )
       ),
       initial: AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
@@ -47,12 +62,15 @@ class MyApp extends StatelessWidget {
   //   return MaterialApp(
   //     title: 'Flutter Demo',
   //     theme: ThemeData(
-  //       colorScheme: Theme.of(context).colorScheme
-  //           .copyWith(
-  //              primary: Colors.red,
-  //              secondary: Colors.teal,
-  //           ),
-  //         fontFamily: 'kdamThmorPro'
+  //       scaffoldBackgroundColor: Colors.white,
+  //       colorScheme: Theme.of(context).colorScheme.copyWith(
+  //           primary: Colors.red,
+  //           secondary: Colors.amberAccent,
+  //         ),
+  //       fontFamily: 'kdamThmorPro',
+  //       bottomAppBarTheme: const BottomAppBarTheme(
+  //         color: Colors.redAccent,
+  //       )
   //     ),
   //     home: const MyHomePage(title: 'My Material App'),
   //   );

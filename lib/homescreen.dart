@@ -23,6 +23,22 @@ class _MyHomePageState extends State<MyHomePage> {
     AdaptiveTheme.of(context).toggleThemeMode();
   }
 
+
+
+  FloatingActionButtonLocation _fabLocation =
+      FloatingActionButtonLocation.centerDocked;
+  void _changeFabLocation(){
+    if(_fabLocation == FloatingActionButtonLocation.centerDocked){
+        setState(() {
+          _fabLocation = FloatingActionButtonLocation.endFloat;
+        });
+    } else {
+      setState(() {
+        _fabLocation = FloatingActionButtonLocation.centerDocked;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,21 +82,21 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               pageTitles[_selectedItemIndex],
+              style: const TextStyle(
+                fontSize: 100
+              ),
             ),
-            const SizedBox(height: 16,),
-            ElevatedButton(
-              onPressed: _switchThemeMode,
-              child: const Text("Change theme mode"),
-            )
+            // const SizedBox(height: 16,),
+            // ElevatedButton(
+            //   onPressed: _switchThemeMode,
+            //   child: const Text("Change theme mode"),
+            // )
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).colorScheme.surface,
         selectedFontSize: Theme.of(context).textTheme.bodyLarge?.fontSize ?? 20,
-        selectedItemColor: Theme.of(context).colorScheme.secondary,
         unselectedFontSize: Theme.of(context).textTheme.bodySmall?.fontSize ?? 16,
-        unselectedItemColor: Theme.of(context).colorScheme.onSurface,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -94,6 +110,38 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: _selectedItemIndex,
         onTap: _setSelectedItemIndex,
       ),
+
+      /** USED TO SHOW BOTTOM APP BAR **/
+      // floatingActionButtonLocation: _fabLocation,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _changeFabLocation,
+      //   tooltip: 'Increment',
+      //   elevation: 2.0,
+      //   child: const Icon(Icons.add),
+      // ),
+      // bottomNavigationBar: BottomAppBar(
+      //   shape: const CircularNotchedRectangle(),
+      //   child: Row(
+      //     children: const [
+      //       IconButton(
+      //         tooltip: 'Navigation',
+      //         icon: Icon(
+      //           Icons.menu,
+      //           color: Colors.white,
+      //         ),
+      //         onPressed: null,
+      //       ),
+      //       IconButton(
+      //         tooltip: 'Favorite',
+      //         icon: Icon(
+      //             Icons.favorite,
+      //             color: Colors.white,
+      //         ),
+      //         onPressed: null,
+      //       )
+      //     ],
+      //   ),
+      // ),
     );
   }
 }
