@@ -1,4 +1,3 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -18,12 +17,6 @@ class _MyHomePageState extends State<MyHomePage> {
       _selectedItemIndex = index;
     });
   }
-
-  void _switchThemeMode(){
-    AdaptiveTheme.of(context).toggleThemeMode();
-  }
-
-
 
   FloatingActionButtonLocation _fabLocation =
       FloatingActionButtonLocation.centerDocked;

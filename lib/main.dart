@@ -1,10 +1,20 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:lecture_6_material_theming/facedetectionscreen.dart';
 import 'package:lecture_6_material_theming/formscreen.dart';
 import 'package:lecture_6_material_theming/homescreen.dart';
+import 'package:lecture_6_material_theming/imagelabellingscreen.dart';
+import 'package:lecture_6_material_theming/selfiescreen.dart';
 import 'package:lecture_6_material_theming/styles.dart';
 
-void main() {
+import 'barcodescreen.dart';
+
+late List<CameraDescription> cameras;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  cameras = await availableCameras();
   runApp(const MyApp());
 }
 
@@ -24,7 +34,7 @@ class MyApp extends StatelessWidget {
           color: Colors.redAccent,
         )
       ),
-      home: const FormPage(),
+      home: const SelfiePage(),
     );
   }
 }
