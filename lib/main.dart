@@ -1,13 +1,12 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:lecture_6_material_theming/facedetectionscreen.dart';
 import 'package:lecture_6_material_theming/formscreen.dart';
 import 'package:lecture_6_material_theming/homescreen.dart';
-import 'package:lecture_6_material_theming/imagelabellingscreen.dart';
-import 'package:lecture_6_material_theming/selfiescreen.dart';
+import 'package:lecture_6_material_theming/cv/imagelabellingscreen.dart';
 import 'package:lecture_6_material_theming/styles.dart';
 
-import 'barcodescreen.dart';
+import 'cv/barcodescreen.dart';
+import 'cv/peoplecounter.dart';
 
 late List<CameraDescription> cameras;
 
@@ -34,7 +33,7 @@ class MyApp extends StatelessWidget {
           color: Colors.redAccent,
         )
       ),
-      home: const SelfiePage(),
+      home: const PeopleCounterPage(),
     );
   }
 }
